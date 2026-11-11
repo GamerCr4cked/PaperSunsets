@@ -4,6 +4,8 @@
 
 **Paper Sunsets** is a short, browser-based romantic visual novel set over five afternoons at a school that smells like rain and chalk. Kai finds an anonymous note in his desk and a folded paper crane on the rooftop railing. Someone is leaving him notes. Someone is waiting for him to figure out who.
 
+![Paper Sunsets key art](assets/title/key-art.svg)
+
 - About 20 minutes per playthrough
 - 6 choices and 4 endings
 - A hidden clue system that changes the final choice's wording and ending dialogue
