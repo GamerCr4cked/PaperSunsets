@@ -11,6 +11,7 @@
 - A hidden clue system that changes the final choice's wording and ending dialogue
 - Autosave, three manual save slots, a backlog, auto/skip, text speed, and reduced motion
 - An endings gallery that remembers what you have discovered
+- Synthesized typewriter clicks, character voice blips, and a calm ambient bed — no audio files
 - Vanilla HTML, CSS, and JavaScript — no build step, no dependencies
 
 ## Play locally
@@ -32,9 +33,10 @@ You can also use any static file server, such as `npx serve .`.
 | Advance / finish a line | Click, `Space`, `Enter`, or `→` |
 | Open the backlog | `L` or the Log button |
 | Toggle auto-play | `A` or the Auto button |
+| Mute / unmute sound | `M` or the ♪ button |
 | Open the menu | `Esc` or the Menu button |
 
-Settings include text speed, auto-play delay, and a reduced-motion mode.
+Settings include text speed, auto-play delay, volume, character voice blips, and a reduced-motion mode. Browsers require a small interaction before audio can begin, so the ambience starts on your first click or key press.
 
 ## Endings
 
@@ -59,7 +61,8 @@ PaperSunsets/
 │   └── style.css
 ├── js/
 │   ├── story.js      # All dialogue, choices, flags, and endings
-│   └── engine.js     # Story runtime, saves, UI, audio-free presentation
+│   ├── audio.js      # Synthesized clicks, voices, and ambience
+│   └── engine.js     # Story runtime, saves, UI, and presentation
 ├── assets/
 │   ├── bg/           # Five hand-authored SVG backgrounds
 │   ├── char/         # Mira's four expressions
@@ -73,6 +76,16 @@ All dialogue and branching live in `js/story.js`. The asset registry is at the t
 ## Art
 
 Every visual in this repository is original hand-authored SVG art: the key art, five backgrounds, Mira's four expressions, and the crane motif. The engine supports swapping in PNG, JPG, or WebP files by changing the paths in the `ASSETS` registry.
+
+## Audio
+
+All sound is generated at runtime with the Web Audio API. There are no audio files to download:
+
+- **Typewriter clicks** follow the text as it types, with a softer tick for spaces and a firmer one for punctuation.
+- **Voice blips** give short reactions like "hm?", "oh!", and "urgh" a small formant-synthesized voice, pitched differently for Kai, Mira, Elena, and Jun. Story lines can request a specific reaction with a `voice` field (`hm`, `oh`, `ah`, `eh`, `huh`, `urgh`, `sigh`), and short interjections are detected automatically.
+- **Ambience** is a slow Fmaj7–Am7–Bbmaj7–Cmaj7 pad with soft air, a low drone, and occasional distant chimes. It pauses when the tab is hidden and follows the volume setting.
+
+Sound is muted instantly from the ♪ button in the top bar or with `M`. Volume, mute, and voice-blip settings persist with the rest of the game settings.
 
 ## Deploying to GitHub Pages
 

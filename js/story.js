@@ -7,7 +7,7 @@ window.STORY = {
   meta: {
     title: "Paper Sunsets",
     subtitle: "A story about the things we write instead of saying.",
-    version: "1.0.0"
+    version: "1.1.0"
   },
 
   endings: [
@@ -52,12 +52,12 @@ window.STORY = {
         { text: `I remember because it was the minute everything changed.` },
         { text: `Fourth period. The window beside my desk was open, and the curtain kept breathing in and out like it was bored too.` },
         { who: "Jun", text: `Kai. Kai. You're doing the thing again.` },
-        { who: "Kai", text: `What thing?` },
+        { who: "Kai", voice: "huh", text: `What thing?` },
         { who: "Jun", text: `The thing where you stare at a wall like it owes you money.` },
         { text: `I was about to defend my honor when my hand brushed something inside my desk.` },
         { text: `A folded square of paper. Crisp edges. A tiny paper crane drawn in the corner.` },
         { who: "Kai", text: `This wasn't here this morning.` },
-        { who: "Jun", text: `Ohhh. Secret admirer.` },
+        { who: "Jun", voice: "oh", text: `Ohhh. Secret admirer.` },
         { who: "Kai", text: `Or someone finally complaining about my handwriting.` },
         { text: `I unfolded it under the desk.` },
         { type: "note", text: `Rooftop. 4:10. Come alone.\n\n— a friend` },
@@ -166,12 +166,12 @@ window.STORY = {
       portrait: "mira_neutral",
       lines: [
         { text: `I was halfway back to the school when I nearly tripped over someone sitting on the steps.` },
-        { who: "Mira", text: `Oh— Kai. Hi. I didn't— the stairs are nice. For sitting.` },
+        { who: "Mira", voice: "oh", text: `Oh— Kai. Hi. I didn't— the stairs are nice. For sitting.` },
         { who: "Kai", text: `They're good stairs.` },
         { text: `She laughed. Then she looked at the roof door behind me, and the laugh folded itself away.` },
         { portrait: "mira_blush", who: "Mira", text: `Did you... find anything? Up there?` },
         { who: "Kai", text: `Depends. What would I find?` },
-        { portrait: "mira_sad", who: "Mira", text: `Nothing. Forget it. I have to go. Books. I mean— the library. Bye.` },
+        { portrait: "mira_sad", who: "Mira", voice: "ah", text: `Nothing. Forget it. I have to go. Books. I mean— the library. Bye.` },
         { portrait: "mira_neutral", text: `She left a paper crane on the step. I picked it up before the wind could.` },
         { text: `Crooked left wing.` }
       ],
@@ -187,7 +187,7 @@ window.STORY = {
       lines: [
         { text: `Tuesday arrived with a headache and a note in my bag that I had read eleven times.` },
         { who: "Jun", text: `You look terrible.` },
-        { who: "Kai", text: `Thanks.` },
+        { who: "Kai", voice: "hm", text: `Thanks.` },
         { who: "Jun", text: `No, like— dramatically terrible. Like a poet who forgot to eat.` },
         { who: "Kai", text: `I slept three hours.` },
         { who: "Jun", text: `Found your mystery person yet?` },
@@ -252,7 +252,7 @@ window.STORY = {
         { who: "Mira", text: `Tuesdays and Thursdays. It's quiet.` },
         { who: "Kai", text: `I'm looking for a book on origami.` },
         { who: "Mira", text: `Any particular reason?` },
-        { who: "Kai", text: `Research.` },
+        { who: "Kai", voice: "hm", text: `Research.` },
         { who: "Mira", text: `For a class?` },
         { who: "Kai", text: `For a... personal project.` },
         { text: `Something flickered across her face. Surprise, maybe. Or the shadow of a smile.` },
@@ -260,7 +260,7 @@ window.STORY = {
         { text: `A crane's wing poked out from between the pages of her sketchbook.` },
         { who: "Mira", text: `Here. This one has good diagrams.` },
         { text: `A paper crane slipped from the book and landed at my feet.` },
-        { portrait: "mira_blush", who: "Mira", text: `...That's old. It was already there. Probably.` }
+        { portrait: "mira_blush", who: "Mira", voice: "eh", text: `...That's old. It was already there. Probably.` }
       ],
       next: "tuesday_crane_choice"
     },
@@ -287,7 +287,7 @@ window.STORY = {
         { text: `I pulled the note from my pocket and held it beside the crane.` },
         { text: `Crooked left wing. Same angle. Same tiny extra fold near the tail.` },
         { who: "Kai", text: `Lots of people fold cranes.` },
-        { who: "Mira", text: `Yes. Lots.` },
+        { who: "Mira", voice: "hm", text: `Yes. Lots.` },
         { who: "Kai", text: `But not with a crooked left wing.` },
         { text: `She looked at the window. Her ears had gone red.` },
         { who: "Mira", text: `You should... read the book. The diagrams are good.` },
@@ -314,7 +314,7 @@ window.STORY = {
       lines: [
         { text: `When I opened my bag that night, a new note was tucked between my notebooks.` },
         { type: "note", text: `Rain tomorrow. Bring an umbrella.\n\nSome things are easier to say when the world is quiet.\n\n— a friend` },
-        { who: "Kai", text: `Right. An umbrella.` }
+        { who: "Kai", voice: "oh", text: `Right. An umbrella.` }
       ],
       next: "wednesday_rain"
     },
@@ -353,7 +353,7 @@ window.STORY = {
       portrait: "mira_smile",
       lines: [
         { who: "Kai", text: `Waiting for someone?` },
-        { who: "Mira", text: `The rain. I mean— no. Just waiting.` },
+        { who: "Mira", voice: "ah", text: `The rain. I mean— no. Just waiting.` },
         { who: "Kai", text: `I forgot mine.` },
         { text: `She looked at her umbrella. Then at me. Then at the umbrella again.` },
         { who: "Mira", text: `I have room. If you want. It's a big umbrella. For an umbrella.` },
@@ -366,7 +366,7 @@ window.STORY = {
         { who: "Mira", text: `I like rain. Everything gets quieter. It's like the world gives you permission to be brave.` },
         { text: `I stopped walking.` },
         { who: "Kai", text: `What did you say?` },
-        { who: "Mira", text: `Nothing. Puddle. Watch the puddle.` },
+        { who: "Mira", voice: "eh", text: `Nothing. Puddle. Watch the puddle.` },
         { text: `I looked down. There was no puddle.` },
         { text: `Some things are easier to say when the world is quiet. She had said it without blinking.` },
         { text: `I walked the rest of the way home grinning at the rain like an idiot.` }
@@ -382,7 +382,7 @@ window.STORY = {
         { text: `By the time I got home, I was soaked through and my shoes were making a sound like a dying accordion.` },
         { text: `There was a note on my desk. I don't know how it got there. I didn't ask.` },
         { type: "note", text: `You should have waited.\n\nI would have shared.\n\n— a friend` },
-        { who: "Kai", text: `...I'm an idiot.` }
+        { who: "Kai", voice: "urgh", text: `...I'm an idiot.` }
       ],
       next: "wed_close"
     },
@@ -441,8 +441,8 @@ window.STORY = {
         { who: "Elena", text: `Kai. Come on.` },
         { text: `She said it like it was obvious. Like the whole school had figured it out except me.` },
         { text: `A paper crane. A crooked wing. Paper cuts. The way she looked at the roof door behind me.` },
-        { who: "Kai", text: `Oh.` },
-        { who: "Elena", text: `There it is.` }
+        { who: "Kai", voice: "oh", text: `Oh.` },
+        { who: "Elena", voice: "ah", text: `There it is.` }
       ],
       next: "thurs_note"
     },
@@ -450,14 +450,14 @@ window.STORY = {
     thurs_accuse: {
       lines: [
         { who: "Kai", text: `It's you, isn't it?` },
-        { who: "Elena", text: `Me?` },
+        { who: "Elena", voice: "huh", text: `Me?` },
         { who: "Kai", text: `You're always around. You knew about the note. You have a paper crane.` },
         { who: "Elena", text: `I have a paper crane because I confiscated it from the recycling bin.` },
         { who: "Elena", text: `And I'm always around because I'm class representative.` },
         { who: "Kai", text: `...That's a very good alibi.` },
         { who: "Elena", text: `It's not an alibi. It's my life.` },
         { text: `She sighed and handed me the crane. Crooked left wing.` },
-        { who: "Elena", text: `Think harder, Kai. Please. For all of us.` }
+        { who: "Elena", voice: "sigh", text: `Think harder, Kai. Please. For all of us.` }
       ],
       next: "thurs_note"
     },
@@ -467,7 +467,7 @@ window.STORY = {
       lines: [
         { text: `There was a note waiting in my literature textbook.` },
         { type: "note", text: `Tomorrow. Last sunset.\n\nIf you know my name, say it.\n\nIf you don't... I understand.\n\n— your friend` },
-        { who: "Kai", text: `Last sunset?` },
+        { who: "Kai", voice: "hm", text: `Last sunset?` },
         { text: `I read it four times. Then I went to find Jun.` }
       ],
       next: "friday_jun"
@@ -480,7 +480,7 @@ window.STORY = {
         { text: `Jun was at the school gate, eating a convenience-store bun like it was a full-course meal.` },
         { who: "Kai", text: `I think I know who's been writing the notes.` },
         { who: "Jun", text: `Finally. I've known since Tuesday.` },
-        { who: "Kai", text: `You what?` },
+        { who: "Kai", voice: "huh", text: `You what?` },
         { who: "Jun", text: `You're not exactly subtle. Neither is she.` },
         { who: "Kai", text: `Why didn't you tell me?` },
         { who: "Jun", text: `Because it's your story. I'm just the comic relief.` },
@@ -549,7 +549,7 @@ window.STORY = {
       portrait: null,
       lines: [
         { text: `Behind me, someone let out a breath.` },
-        { portrait: "mira_neutral", who: "Mira", text: `You said my name.` },
+        { portrait: "mira_neutral", who: "Mira", voice: "ah", text: `You said my name.` },
         { who: "Kai", text: `You made it pretty hard to guess.` },
         { who: "Mira", text: `I folded a lot of cranes.` },
         { text: `She stepped out from behind the water tank. She was still holding a pen. There was ink on her fingers.` },
@@ -558,7 +558,7 @@ window.STORY = {
         { who: "Kai", text: `I did.` },
         { who: "Mira", text: `Did you?` },
         { who: "Kai", text: `The crooked wing. The paper cuts. The rain line. The way you looked at the roof door.` },
-        { who: "Mira", text: `Oh.` },
+        { who: "Mira", voice: "oh", text: `Oh.` },
         { who: "Kai", text: `Also, Jun says I'm not subtle.` },
         { who: "Mira", text: `He's right.` },
         {
@@ -603,7 +603,7 @@ window.STORY = {
         { who: "Kai", text: `I'll even use proper stationery.` },
         { text: `She laughed. The wind lifted the crane off the railing, and she caught it without looking, the way you catch something you've thrown a hundred times.` },
         { portrait: "mira_smile", who: "Mira", text: `One condition.` },
-        { who: "Kai", text: `What?` },
+        { who: "Kai", voice: "huh", text: `What?` },
         { who: "Mira", text: `No more anonymous notes.` },
         { who: "Kai", text: `Deal.` },
         { portrait: "mira_blush", text: `But when I got home that night, there was a folded square of paper in my pocket. I didn't remember putting it there.` },
@@ -638,10 +638,10 @@ window.STORY = {
       lines: [
         { who: "Kai", text: `Elena.` },
         { text: `The stairwell door opened.` },
-        { who: "Elena", text: `Did someone say my name?` },
+        { who: "Elena", voice: "hm", text: `Did someone say my name?` },
         { text: `She was holding a stack of student council forms. She looked around the empty roof, then at me.` },
         { who: "Elena", text: `Kai. Why are you standing here alone?` },
-        { who: "Kai", text: `I thought—` },
+        { who: "Kai", voice: "ah", text: `I thought—` },
         { text: `The crane on the railing tipped over. The note inside fluttered loose before I could catch it.` },
         { type: "note", text: `It's okay.\n\nI should have been braver.\n\n— your friend` },
         { who: "Elena", text: `Kai? Who did you think I was?` },

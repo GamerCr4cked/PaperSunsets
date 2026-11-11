@@ -69,6 +69,7 @@
           <button class="chip" id="btn-log" type="button" title="Backlog (L)">Log</button>
           <button class="chip" id="btn-auto" type="button" title="Auto play (A)">Auto</button>
           <button class="chip" id="btn-skip" type="button" title="Skip ahead">Skip</button>
+          <button class="chip chip-sound" id="btn-sound" type="button" title="Mute sound (M)" aria-label="Mute sound" aria-pressed="false">♪</button>
           <button class="chip" id="btn-pause" type="button" title="Menu (Esc)">Menu</button>
         </div>
       </header>
@@ -146,10 +147,28 @@
           <output id="set-auto-val">2.5s</output>
         </div>
 
-        <label class="check-row">
-          <input type="checkbox" id="set-reduce" />
-          <span>Reduce motion</span>
-        </label>
+        <div class="setting-row">
+          <label for="set-volume">Volume</label>
+          <input type="range" id="set-volume" min="0" max="100" step="1" />
+          <output id="set-volume-val">75%</output>
+        </div>
+
+        <div class="check-group">
+          <label class="check-row">
+            <input type="checkbox" id="set-muted" />
+            <span>Mute all sound</span>
+          </label>
+
+          <label class="check-row">
+            <input type="checkbox" id="set-voice" checked />
+            <span>Character voice blips</span>
+          </label>
+
+          <label class="check-row">
+            <input type="checkbox" id="set-reduce" />
+            <span>Reduce motion</span>
+          </label>
+        </div>
 
         <p class="settings-note">Progress autosaves after every line. Manual saves are available from the in-game menu.</p>
 
@@ -212,6 +231,7 @@
   </div>
 
   <script src="./js/story.js"></script>
+  <script src="./js/audio.js"></script>
   <script src="./js/engine.js"></script>
 </body>
 </html>

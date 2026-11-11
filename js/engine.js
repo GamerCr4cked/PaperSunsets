@@ -33,7 +33,10 @@
   const DEFAULT_SETTINGS = {
     textSpeed: 45,
     autoDelay: 2.5,
-    reduceMotion: false
+    reduceMotion: false,
+    volume: 0.75,
+    muted: false,
+    voiceBlips: true
   };
 
   const AUTOSAVE_KEY = "ps_autosave";
@@ -100,8 +103,13 @@
     setSpeedVal: $("set-speed-val"),
     setAuto: $("set-auto"),
     setAutoVal: $("set-auto-val"),
+    setVolume: $("set-volume"),
+    setVolumeVal: $("set-volume-val"),
+    setMuted: $("set-muted"),
+    setVoice: $("set-voice"),
     setReduce: $("set-reduce"),
     btnReset: $("btn-reset"),
+    btnSound: $("btn-sound"),
 
     galleryGrid: $("gallery-grid"),
     galleryCount: $("gallery-count"),
@@ -156,6 +164,7 @@
   let chapterCallback = null;
 
   let toastTimer = null;
+  let voiceTimer = null;
 
   /* ───────────── Utilities ───────────── */
 
@@ -183,10 +192,14 @@
 
   function loadSettings() {
     const stored = loadJSON(SETTINGS_KEY) || {};
+    const storedVolume = stored.volume === undefined ? DEFAULT_SETTINGS.volume : Number(stored.volume);
     return {
       textSpeed: clamp(Number(stored.textSpeed) || DEFAULT_SETTINGS.textSpeed, 10, 100),
       autoDelay: clamp(Number(stored.autoDelay) || DEFAULT_SETTINGS.autoDelay, 1, 6),
-      reduceMotion: Boolean(stored.reduceMotion)
+      reduceMotion: Boolean(stored.reduceMotion),
+      volume: clamp(Number.isFinite(storedVolume) ? storedVolume : DEFAULT_SETTINGS.volume, 0, 1),
+      muted: Boolean(stored.muted),
+      voiceBlips: stored.voiceBlips === undefined ? true : Boolean(stored.voiceBlips)
     };
   }
 
@@ -246,7 +259,56 @@
     el.setSpeedVal.textContent = String(settings.textSpeed);
     el.setAuto.value = String(settings.autoDelay);
     el.setAutoVal.textContent = `${settings.autoDelay.toFixed(1)}s`;
+    el.setVolume.value = String(Math.round(settings.volume * 100));
+    el.setVolumeVal.textContent = `${Math.round(settings.volume * 100)}%`;
+    el.setMuted.checked = settings.muted;
+    el.setVoice.checked = settings.voiceBlips;
     el.setReduce.checked = settings.reduceMotion;
+
+    if (window.PaperAudio) {
+      window.PaperAudio.configure({
+        volume: settings.volume,
+        muted: settings.muted,
+        voices: settings.voiceBlips
+      });
+    }
+
+    updateSoundButton();
+  }
+
+  /* ───────────── Audio controls ───────────── */
+
+  function startAudio() {
+    if (!window.PaperAudio) return;
+    window.PaperAudio.unlock();
+    window.PaperAudio.startAmbience();
+  }
+
+  function updateSoundButton() {
+    const off = settings.muted || settings.volume <= 0.001;
+    el.btnSound.classList.toggle("is-off", off);
+    el.btnSound.setAttribute("aria-pressed", String(settings.muted));
+    const label = settings.muted ? "Unmute sound" : "Mute sound";
+    el.btnSound.title = `${label} (M)`;
+    el.btnSound.setAttribute("aria-label", label);
+  }
+
+  function setMuted(value) {
+    settings.muted = Boolean(value);
+    if (!settings.muted && settings.volume < 0.05) {
+      settings.volume = 0.6;
+    }
+
+    saveSettings();
+    applySettings();
+
+    if (!settings.muted) startAudio();
+
+    toast(settings.muted ? "Sound muted" : "Sound on");
+  }
+
+  function toggleMute() {
+    setMuted(!settings.muted);
   }
 
   /* ───────────── Screens ───────────── */
@@ -336,6 +398,46 @@
     }
   }
 
+  /* ───────────── Voice cues ───────────── */
+
+  const VOICE_PRESETS = new Set(["hm", "oh", "ah", "eh", "huh", "urgh", "sigh"]);
+
+  function cancelVoice() {
+    clearTimeout(voiceTimer);
+    voiceTimer = null;
+  }
+
+  function voicePresetFor(line) {
+    if (!line.who) return null;
+    if (line.voice && VOICE_PRESETS.has(line.voice)) return line.voice;
+
+    const text = String(line.text || "").trim();
+    if (!text || text.length > 42) return null;
+    if (text.split(/\s+/).length > 5) return null;
+
+    const lower = text.toLowerCase();
+    if (/^sigh\b/.test(lower)) return "sigh";
+    if (/^(hm+|mhm|mm)\b/.test(lower)) return "hm";
+    if (/^(oh+|ooh+)\b/.test(lower)) return "oh";
+    if (/^(ah+|ahh+)\b/.test(lower)) return "ah";
+    if (/^(ugh+|urgh+|ergh+)\b/.test(lower)) return "urgh";
+    if (/^(eh|heh)\b/.test(lower)) return "eh";
+    if (/^(huh|what)\b/.test(lower)) return "huh";
+    return null;
+  }
+
+  function playLineVoice(line) {
+    const preset = voicePresetFor(line);
+    if (!preset) return;
+
+    cancelVoice();
+    voiceTimer = setTimeout(() => {
+      voiceTimer = null;
+      if (!gameActive || skipMode || choicesActive || noteActive || isModalOpen()) return;
+      if (window.PaperAudio) window.PaperAudio.voice(preset, line.who);
+    }, 110);
+  }
+
   /* ───────────── Story flow ───────────── */
 
   function showNode(id, options = {}) {
@@ -346,6 +448,7 @@
     }
 
     cancelTyping();
+    cancelVoice();
     cancelAutoTimer();
     hideChoices();
     hideNote();
@@ -413,6 +516,7 @@
 
     setNameplate(line.who);
     typeText(line.text);
+    playLineVoice(line);
 
     if (!suppressHistory) {
       pushHistory(line.who || "Narration", line.text, "line");
@@ -474,11 +578,19 @@
 
     const charsPerSecond = 10 + settings.textSpeed * 0.95;
     const startedAt = performance.now();
+    let shownCount = 0;
 
     const frame = (now) => {
       const elapsed = (now - startedAt) / 1000;
       const count = Math.min(text.length, Math.floor(elapsed * charsPerSecond));
       el.dialogueText.textContent = text.slice(0, count);
+
+      if (count > shownCount) {
+        if (!skipMode && !isModalOpen() && window.PaperAudio) {
+          window.PaperAudio.type(text.slice(shownCount, count));
+        }
+        shownCount = count;
+      }
 
       if (count < text.length) {
         typeRaf = requestAnimationFrame(frame);
@@ -811,6 +923,7 @@
     el.btnAuto.classList.remove("is-active");
     el.btnAuto.setAttribute("aria-pressed", "false");
 
+    startAudio();
     showScreen("game");
     showNode(window.STORY.start);
   }
@@ -860,6 +973,8 @@
 
     showScreen("game");
     el.chapterLabel.textContent = state.label;
+
+    startAudio();
 
     suppressHistory = true;
     showNode(data.nodeId, { lineIndex: state.lineIndex, fromSave: true });
@@ -1152,6 +1267,7 @@
     el.btnAuto.addEventListener("click", toggleAuto);
     el.btnSkip.addEventListener("click", toggleSkip);
     el.btnPause.addEventListener("click", openPause);
+    el.btnSound.addEventListener("click", toggleMute);
 
     // Pause menu
     el.btnPauseSaves.addEventListener("click", () => {
@@ -1180,6 +1296,26 @@
       settings.autoDelay = Number(el.setAuto.value);
       el.setAutoVal.textContent = `${settings.autoDelay.toFixed(1)}s`;
       saveSettings();
+    });
+
+    el.setVolume.addEventListener("input", () => {
+      const next = Number(el.setVolume.value) / 100;
+      settings.volume = next;
+      if (next > 0.001 && settings.muted) settings.muted = false;
+      if (next <= 0.001) settings.muted = true;
+      saveSettings();
+      applySettings();
+      if (!settings.muted) startAudio();
+    });
+
+    el.setMuted.addEventListener("change", () => {
+      setMuted(el.setMuted.checked);
+    });
+
+    el.setVoice.addEventListener("change", () => {
+      settings.voiceBlips = el.setVoice.checked;
+      saveSettings();
+      applySettings();
     });
 
     el.setReduce.addEventListener("change", () => {
@@ -1258,15 +1394,32 @@
       if (key === "a") {
         event.preventDefault();
         toggleAuto();
+        return;
+      }
+
+      if (key === "m") {
+        event.preventDefault();
+        toggleMute();
       }
     });
 
-    // Pause auto-play when the tab is hidden
+    // Browsers require a gesture before audio can start.
+    const unlockAudio = () => {
+      document.removeEventListener("pointerdown", unlockAudio);
+      document.removeEventListener("keydown", unlockAudio);
+      startAudio();
+    };
+    document.addEventListener("pointerdown", unlockAudio);
+    document.addEventListener("keydown", unlockAudio);
+
+    // Pause auto-play and sound when the tab is hidden
     document.addEventListener("visibilitychange", () => {
       if (document.hidden) {
         cancelAutoTimer();
-      } else if (autoMode) {
-        scheduleAuto();
+        if (window.PaperAudio) window.PaperAudio.setPageHidden(true);
+      } else {
+        if (autoMode) scheduleAuto();
+        if (window.PaperAudio) window.PaperAudio.setPageHidden(false);
       }
     });
   }
@@ -1299,6 +1452,7 @@
       closeAllModals();
       gameActive = true;
       endingVisible = false;
+      startAudio();
       showScreen("game");
       showNode(nodeId);
     },
