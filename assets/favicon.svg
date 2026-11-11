@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Paper crane">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#42204a"/>
+      <stop offset="1" stop-color="#1f0e20"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffe2c2"/>
+      <stop offset="1" stop-color="#f4988c"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <circle cx="46" cy="19" r="9" fill="#ffb089" opacity=".28"/>
+  <g transform="translate(7 7) scale(.5)" fill="url(#paper)">
+    <polygon points="50,18 82,42 50,60 18,42" opacity=".62"/>
+    <polygon points="50,60 82,42 70,78 50,88" opacity=".95"/>
+    <polygon points="50,60 18,42 30,78 50,88" opacity=".78"/>
+    <polygon points="50,88 62,96 50,100 38,96" opacity=".88"/>
+    <polygon points="82,42 98,30 94,48 86,52" opacity=".72"/>
+  </g>
+</svg>

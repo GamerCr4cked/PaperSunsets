@@ -1,0 +1,210 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" role="img" aria-label="School hallway on a rainy afternoon, with a clear umbrella leaning against the wall">
+  <defs>
+    <linearGradient id="leftWall" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b9b4ae"/>
+      <stop offset="1" stop-color="#d9d2c8"/>
+    </linearGradient>
+    <linearGradient id="rightWall" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#c9c0b6"/>
+      <stop offset="1" stop-color="#e6ddd1"/>
+    </linearGradient>
+    <linearGradient id="ceiling" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e8e0d6"/>
+      <stop offset="1" stop-color="#cfc7bd"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a9aeb4"/>
+      <stop offset=".45" stop-color="#8f969e"/>
+      <stop offset="1" stop-color="#6e747d"/>
+    </linearGradient>
+    <linearGradient id="rainSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8aa3b4"/>
+      <stop offset=".5" stop-color="#a8bdc8"/>
+      <stop offset="1" stop-color="#c8d4d8"/>
+    </linearGradient>
+    <linearGradient id="lightPool" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe1b0" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#ffd193" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="blur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+    <pattern id="rain" width="26" height="52" patternUnits="userSpaceOnUse">
+      <path d="M4 0 L-2 22 M16 8 L10 30 M22 24 L16 46" stroke="#e8f2f6" stroke-width="1.6" opacity=".38"/>
+    </pattern>
+  </defs>
+
+  <!-- base -->
+  <rect width="1920" height="1080" fill="#8e8a86"/>
+
+  <!-- ceiling -->
+  <polygon points="0,0 1920,0 1160,370 760,370" fill="url(#ceiling)"/>
+  <g stroke="#b4aca3" stroke-width="3" opacity=".6">
+    <path d="M0 0 L760 370"/>
+    <path d="M1920 0 L1160 370"/>
+    <path d="M360 0 L880 370"/>
+    <path d="M1080 0 L1040 370"/>
+    <path d="M1500 0 L1320 370"/>
+  </g>
+
+  <!-- left wall -->
+  <polygon points="0,0 760,370 760,730 0,1080" fill="url(#leftWall)"/>
+  <g stroke="#a9a39c" stroke-width="2" opacity=".35">
+    <path d="M0 180 L760 470"/>
+    <path d="M0 360 L760 560"/>
+    <path d="M0 720 L760 680"/>
+    <path d="M0 900 L760 760"/>
+  </g>
+
+  <!-- right wall -->
+  <polygon points="1920,0 1160,370 1160,730 1920,1080" fill="url(#rightWall)"/>
+  <g stroke="#aaa298" stroke-width="2" opacity=".3">
+    <path d="M1920 180 L1160 470"/>
+    <path d="M1920 400 L1160 560"/>
+    <path d="M1920 760 L1160 700"/>
+    <path d="M1920 930 L1160 790"/>
+  </g>
+
+  <!-- back wall -->
+  <rect x="760" y="370" width="400" height="360" fill="#c2bab1"/>
+  <rect x="800" y="410" width="150" height="280" rx="3" fill="#9da4a8"/>
+  <rect x="812" y="422" width="126" height="256" rx="2" fill="#7f8b91"/>
+  <rect x="980" y="430" width="140" height="200" rx="4" fill="#b9c4c8"/>
+  <path d="M1050 430 V630" stroke="#8d999e" stroke-width="6"/>
+  <rect x="990" y="650" width="120" height="14" rx="4" fill="#8a7c70"/>
+
+  <!-- windows left -->
+  <g>
+    <polygon points="30,80 700,392 700,690 30,940" fill="#6f7d86"/>
+    <polygon points="52,110 676,410 676,672 52,908" fill="url(#rainSky)"/>
+    <rect x="52" y="110" width="624" height="798" fill="url(#rain)" opacity=".75" transform="skewY(21)"/>
+    <g stroke="#6f7d86" stroke-width="12">
+      <path d="M250 190 L250 830"/>
+      <path d="M472 292 L472 762"/>
+      <path d="M52 420 L676 570"/>
+      <path d="M52 660 L676 690"/>
+    </g>
+    <g fill="#d9e5e8" opacity=".25">
+      <polygon points="90,150 230,212 230,390 90,330"/>
+      <polygon points="270,280 450,352 450,530 270,460"/>
+      <polygon points="490,382 660,442 660,610 490,556"/>
+    </g>
+    <!-- distant trees / city through rain -->
+    <g fill="#7e969d" opacity=".55">
+      <circle cx="140" cy="720" r="60"/>
+      <circle cx="220" cy="740" r="48"/>
+      <circle cx="360" cy="650" r="42"/>
+      <circle cx="540" cy="600" r="38"/>
+      <circle cx="640" cy="600" r="30"/>
+    </g>
+  </g>
+
+  <!-- lockers right -->
+  <g>
+    <polygon points="1210,430 1880,120 1880,390 1210,600" fill="#8d9a9b"/>
+    <polygon points="1230,454 1858,164 1858,352 1230,556" fill="#a4b0b0"/>
+    <g stroke="#7c898a" stroke-width="4">
+      <path d="M1330 408 L1330 590"/>
+      <path d="M1430 362 L1430 562"/>
+      <path d="M1530 318 L1530 532"/>
+      <path d="M1630 274 L1630 502"/>
+      <path d="M1730 230 L1730 472"/>
+    </g>
+    <g fill="#697778">
+      <rect x="1250" y="486" width="10" height="34" rx="4" transform="rotate(-25 1250 486)"/>
+      <rect x="1350" y="440" width="10" height="34" rx="4" transform="rotate(-25 1350 440)"/>
+      <rect x="1450" y="394" width="10" height="34" rx="4" transform="rotate(-25 1450 394)"/>
+      <rect x="1550" y="348" width="10" height="34" rx="4" transform="rotate(-25 1550 348)"/>
+      <rect x="1650" y="302" width="10" height="34" rx="4" transform="rotate(-25 1650 302)"/>
+      <rect x="1750" y="256" width="10" height="34" rx="4" transform="rotate(-25 1750 256)"/>
+    </g>
+    <polygon points="1210,640 1880,430 1880,540 1210,710" fill="#849192"/>
+    <g fill="#b3bcba" opacity=".7">
+      <rect x="1280" y="470" width="42" height="12" rx="4" transform="rotate(-25 1280 470)"/>
+      <rect x="1480" y="380" width="42" height="12" rx="4" transform="rotate(-25 1480 380)"/>
+      <rect x="1680" y="292" width="42" height="12" rx="4" transform="rotate(-25 1680 292)"/>
+    </g>
+  </g>
+
+  <!-- notice board on right wall -->
+  <g transform="translate(1260 690) rotate(-20)">
+    <rect width="230" height="150" rx="4" fill="#7d5c43"/>
+    <rect x="10" y="10" width="210" height="130" fill="#b98d62"/>
+    <rect x="24" y="24" width="58" height="44" rx="2" fill="#f2eadb"/>
+    <rect x="92" y="30" width="52" height="40" rx="2" fill="#f0d7b2"/>
+    <rect x="154" y="22" width="50" height="46" rx="2" fill="#d9e5e2"/>
+    <rect x="30" y="80" width="74" height="42" rx="2" fill="#e7d6c2"/>
+    <rect x="116" y="86" width="76" height="34" rx="2" fill="#f4e7d3"/>
+  </g>
+
+  <!-- floor -->
+  <polygon points="0,1080 1920,1080 1160,730 760,730" fill="url(#floor)"/>
+  <g stroke="#c8d0d4" stroke-width="2" opacity=".18">
+    <path d="M0 1080 L760 730"/>
+    <path d="M380 1080 L850 730"/>
+    <path d="M780 1080 L970 730"/>
+    <path d="M1180 1080 L1090 730"/>
+    <path d="M1580 1080 L1220 730"/>
+    <path d="M1920 1080 L1160 730"/>
+  </g>
+  <!-- window reflections -->
+  <g fill="#c9d9df" opacity=".22">
+    <polygon points="120,1080 260,1080 300,760 250,740"/>
+    <polygon points="420,1080 540,1080 480,760 440,745"/>
+    <polygon points="700,1080 780,1080 620,760 580,750"/>
+  </g>
+
+  <!-- ceiling lights -->
+  <g>
+    <path d="M760 120 L1160 120" stroke="#d8d0c6" stroke-width="10"/>
+    <rect x="880" y="130" width="160" height="24" rx="10" fill="#f5e7c7"/>
+    <rect x="900" y="154" width="120" height="10" rx="5" fill="#ffe0a0" opacity=".9"/>
+    <circle cx="960" cy="160" r="90" fill="#ffd89b" opacity=".18" filter="url(#blur)"/>
+  </g>
+  <g>
+    <path d="M120 20 L260 20" stroke="#d8d0c6" stroke-width="10"/>
+    <rect x="150" y="30" width="110" height="20" rx="9" fill="#f5e7c7"/>
+    <circle cx="205" cy="50" r="70" fill="#ffd89b" opacity=".16" filter="url(#blur)"/>
+    <path d="M1660 20 L1800 20" stroke="#d8d0c6" stroke-width="10"/>
+    <rect x="1690" y="30" width="110" height="20" rx="9" fill="#f5e7c7"/>
+    <circle cx="1745" cy="50" r="70" fill="#ffd89b" opacity=".16" filter="url(#blur)"/>
+  </g>
+
+  <!-- light pools on floor -->
+  <polygon points="150,1080 420,1080 520,780 360,750" fill="url(#lightPool)" opacity=".55"/>
+  <polygon points="760,1080 960,1080 820,750 760,745" fill="url(#lightPool)" opacity=".4"/>
+  <polygon points="1350,1080 1580,1080 1200,750 1130,760" fill="url(#lightPool)" opacity=".3"/>
+
+  <!-- clear umbrella leaning -->
+  <g transform="translate(210 780)">
+    <path d="M90 330 L130 0" stroke="#6c777d" stroke-width="10" stroke-linecap="round"/>
+    <path d="M118 26 Q118 -40 186 -40 Q254 -40 254 26 Z" fill="#d8e8ec" opacity=".45" stroke="#7d8e95" stroke-width="5"/>
+    <path d="M118 26 Q150 4 186 26 Q222 4 254 26" fill="none" stroke="#7d8e95" stroke-width="4"/>
+    <path d="M186 -40 V26" stroke="#7d8e95" stroke-width="3"/>
+    <path d="M150 -22 Q154 0 150 22" stroke="#7d8e95" stroke-width="2.5"/>
+    <path d="M222 -22 Q218 0 222 22" stroke="#7d8e95" stroke-width="2.5"/>
+    <path d="M130 0 Q152 -16 174 0" fill="none" stroke="#6c777d" stroke-width="6"/>
+  </g>
+
+  <!-- rain on camera / atmosphere -->
+  <g stroke="#dce9ee" stroke-width="2" opacity=".25" filter="url(#soft)">
+    <path d="M300 200 L240 460"/>
+    <path d="M900 160 L860 360"/>
+    <path d="M1450 250 L1400 470"/>
+    <path d="M620 90 L580 280"/>
+    <path d="M1720 300 L1680 500"/>
+  </g>
+  <g fill="#dbe8ed" opacity=".35">
+    <circle cx="340" cy="620" r="5"/>
+    <circle cx="1080" cy="500" r="4"/>
+    <circle cx="1520" cy="660" r="5"/>
+    <circle cx="720" cy="700" r="4"/>
+    <circle cx="1780" cy="760" r="4"/>
+    <circle cx="520" cy="860" r="3"/>
+  </g>
+
+  <rect width="1920" height="1080" fill="#7f9bb0" opacity=".08"/>
+</svg>

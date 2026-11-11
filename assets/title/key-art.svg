@@ -1,0 +1,197 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Two students on a school rooftop at sunset, a paper crane on the railing between them">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a2143"/>
+      <stop offset=".22" stop-color="#6b355c"/>
+      <stop offset=".42" stop-color="#a94d68"/>
+      <stop offset=".60" stop-color="#e07576"/>
+      <stop offset=".75" stop-color="#f79b7c"/>
+      <stop offset=".88" stop-color="#ffc994"/>
+      <stop offset="1" stop-color="#ffe6b8"/>
+    </linearGradient>
+    <radialGradient id="sunHalo" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#ffe9b8" stop-opacity=".95"/>
+      <stop offset=".35" stop-color="#ffcf93" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#ff9d78" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5a3350"/>
+      <stop offset=".45" stop-color="#3e2340"/>
+      <stop offset="1" stop-color="#241326"/>
+    </linearGradient>
+    <linearGradient id="city" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6b3a5a"/>
+      <stop offset="1" stop-color="#3f2343"/>
+    </linearGradient>
+    <linearGradient id="figureBoy" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffb48d" stop-opacity=".65"/>
+      <stop offset=".14" stop-color="#2b1a2f"/>
+      <stop offset=".82" stop-color="#1d1223"/>
+      <stop offset="1" stop-color="#4a263f"/>
+    </linearGradient>
+    <linearGradient id="figureGirl" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffc49b" stop-opacity=".7"/>
+      <stop offset=".15" stop-color="#301b2d"/>
+      <stop offset=".8" stop-color="#211426"/>
+      <stop offset="1" stop-color="#59304a"/>
+    </linearGradient>
+    <linearGradient id="hair" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a2024"/>
+      <stop offset="1" stop-color="#24121a"/>
+    </linearGradient>
+    <radialGradient id="edge" cx="50%" cy="48%" r="68%">
+      <stop offset=".55" stop-color="#1a0b1c" stop-opacity="0"/>
+      <stop offset="1" stop-color="#140814" stop-opacity=".55"/>
+    </radialGradient>
+    <filter id="blurLg" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+    <filter id="blurSm" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+    <pattern id="mesh" width="34" height="34" patternUnits="userSpaceOnUse">
+      <path d="M0 34 L34 0 M-8 8 L8 -8 M26 42 L42 26" stroke="#2a1830" stroke-width="1.4" opacity=".52"/>
+    </pattern>
+  </defs>
+
+  <!-- sky -->
+  <rect width="1920" height="1080" fill="url(#sky)"/>
+
+  <!-- sun and glow -->
+  <circle cx="1450" cy="640" r="330" fill="url(#sunHalo)"/>
+  <circle cx="1450" cy="632" r="98" fill="#ffe3ad" opacity=".96"/>
+  <circle cx="1450" cy="632" r="150" fill="#ffca8c" opacity=".22"/>
+
+  <!-- soft clouds -->
+  <g filter="url(#blurLg)" fill="#ffb3a0">
+    <ellipse cx="380" cy="290" rx="320" ry="42" opacity=".28"/>
+    <ellipse cx="980" cy="220" rx="380" ry="36" opacity=".22"/>
+    <ellipse cx="1580" cy="330" rx="300" ry="38" opacity=".30"/>
+    <ellipse cx="1250" cy="460" rx="420" ry="30" opacity=".20"/>
+    <ellipse cx="600" cy="540" rx="280" ry="26" opacity=".16"/>
+  </g>
+  <g filter="url(#blurSm)" fill="#ffe0b6" opacity=".32">
+    <ellipse cx="1080" cy="560" rx="260" ry="14"/>
+    <ellipse cx="720" cy="620" rx="200" ry="11"/>
+  </g>
+
+  <!-- light rays -->
+  <g fill="#ffe1b1" opacity=".10">
+    <polygon points="1450,632 980,1080 1240,1080"/>
+    <polygon points="1450,632 1600,1080 1900,1080"/>
+    <polygon points="1450,632 300,1080 60,1080"/>
+  </g>
+
+  <!-- distant city -->
+  <g fill="url(#city)">
+    <path d="M0 782 L0 742 L52 742 L52 712 L96 712 L96 756 L142 756 L142 728 L196 728 L196 770 L250 770 L250 706 L294 706 L294 744 L352 744 L352 720 L402 720 L402 766 L462 766 L462 734 L516 734 L516 752 L572 752 L572 706 L612 706 L612 692 L654 692 L654 748 L708 748 L708 724 L760 724 L760 762 L818 762 L818 716 L858 716 L858 700 L904 700 L904 744 L956 744 L956 726 L1004 726 L1004 764 L1062 764 L1062 732 L1112 732 L1112 750 L1168 750 L1168 712 L1208 712 L1208 696 L1252 696 L1252 744 L1306 744 L1306 724 L1360 724 L1360 758 L1418 758 L1418 730 L1466 730 L1466 748 L1524 748 L1524 714 L1570 714 L1570 700 L1616 700 L1616 742 L1672 742 L1672 726 L1724 726 L1724 760 L1782 760 L1782 736 L1836 736 L1836 754 L1892 754 L1892 728 L1920 728 L1920 782 Z"/>
+  </g>
+  <g fill="#ffcf99" opacity=".38">
+    <rect x="68" y="732" width="7" height="7"/>
+    <rect x="84" y="748" width="5" height="8"/>
+    <rect x="160" y="748" width="6" height="6"/>
+    <rect x="214" y="786" width="7" height="7"/>
+    <rect x="272" y="760" width="5" height="7"/>
+    <rect x="322" y="742" width="6" height="6"/>
+    <rect x="376" y="776" width="5" height="6"/>
+    <rect x="538" y="770" width="6" height="7"/>
+    <rect x="628" y="744" width="5" height="6"/>
+    <rect x="668" y="722" width="4" height="6"/>
+    <rect x="730" y="766" width="6" height="6"/>
+    <rect x="872" y="752" width="5" height="6"/>
+    <rect x="928" y="770" width="6" height="7"/>
+    <rect x="1022" y="748" width="5" height="6"/>
+    <rect x="1130" y="754" width="6" height="6"/>
+    <rect x="1224" y="742" width="4" height="6"/>
+    <rect x="1282" y="764" width="5" height="7"/>
+    <rect x="1440" y="752" width="6" height="6"/>
+    <rect x="1554" y="728" width="4" height="6"/>
+    <rect x="1640" y="756" width="6" height="6"/>
+    <rect x="1768" y="776" width="5" height="6"/>
+    <rect x="1852" y="752" width="6" height="7"/>
+  </g>
+
+  <!-- rooftop floor -->
+  <rect x="0" y="790" width="1920" height="290" fill="url(#floor)"/>
+  <path d="M0 790 H1920" stroke="#8d4d68" stroke-width="3" opacity=".55"/>
+  <g stroke="#7a3f60" stroke-width="2" opacity=".18">
+    <path d="M0 850 L1920 830"/>
+    <path d="M0 930 L1920 900"/>
+    <path d="M0 1010 L1920 980"/>
+  </g>
+
+  <!-- water tank -->
+  <g>
+    <rect x="1690" y="508" width="176" height="196" rx="18" fill="#2b172f"/>
+    <ellipse cx="1778" cy="508" rx="88" ry="16" fill="#3a203c"/>
+    <ellipse cx="1778" cy="704" rx="88" ry="18" fill="#211125"/>
+    <path d="M1722 706 L1718 792 M1834 706 L1838 792 M1766 708 L1764 792" stroke="#24132a" stroke-width="12"/>
+    <path d="M1692 520 Q1778 480 1864 520" stroke="#ffb68c" stroke-width="3" fill="none" opacity=".4"/>
+  </g>
+
+  <!-- railing -->
+  <g>
+    <rect x="860" y="700" width="1060" height="13" fill="#341d37"/>
+    <rect x="860" y="774" width="1060" height="10" fill="#321c34"/>
+    <rect x="860" y="700" width="1060" height="86" fill="url(#mesh)" opacity=".7"/>
+    <g fill="#301a33">
+      <rect x="900" y="700" width="12" height="104"/>
+      <rect x="1060" y="700" width="12" height="104"/>
+      <rect x="1220" y="700" width="12" height="104"/>
+      <rect x="1380" y="700" width="12" height="104"/>
+      <rect x="1540" y="700" width="12" height="104"/>
+      <rect x="1700" y="700" width="12" height="104"/>
+      <rect x="1860" y="700" width="12" height="104"/>
+    </g>
+    <path d="M860 700 H1920" stroke="#ffb98e" stroke-width="2.5" opacity=".55"/>
+  </g>
+
+  <!-- two figures, seen from behind -->
+  <g>
+    <!-- boy -->
+    <g fill="url(#figureBoy)">
+      <circle cx="1218" cy="518" r="36"/>
+      <path d="M1218 552 C1174 556 1156 594 1152 640 C1148 700 1146 800 1140 906 L1306 906 C1298 794 1292 700 1288 640 C1284 592 1264 556 1218 552 Z"/>
+      <path d="M1188 594 L1218 622 L1248 594 L1240 584 L1218 602 L1196 584 Z" fill="#1a1020" opacity=".7"/>
+    </g>
+    <path d="M1188 520 C1176 478 1190 448 1220 444" stroke="#ffc29a" stroke-width="4" fill="none" opacity=".38"/>
+    <path d="M1152 646 L1136 700" stroke="#23142a" stroke-width="18" stroke-linecap="round"/>
+    <path d="M1288 646 L1304 698" stroke="#23142a" stroke-width="18" stroke-linecap="round"/>
+
+    <!-- girl -->
+    <g fill="url(#figureGirl)">
+      <circle cx="1400" cy="512" r="33"/>
+      <path d="M1400 545 C1362 548 1344 586 1340 632 C1337 682 1338 748 1334 806 C1330 858 1330 900 1330 912 L1474 912 C1470 884 1468 846 1462 802 C1456 748 1458 682 1454 632 C1450 586 1436 548 1400 545 Z"/>
+      <path d="M1360 574 C1344 628 1340 700 1346 762 C1350 812 1358 854 1362 900 L1382 900 C1370 842 1360 782 1358 720 C1356 660 1366 616 1380 584 Z" fill="url(#hair)" opacity=".95"/>
+      <path d="M1440 574 C1456 628 1460 700 1454 762 C1450 812 1442 854 1438 900 L1418 900 C1430 842 1440 782 1442 720 C1444 660 1434 616 1420 584 Z" fill="url(#hair)" opacity=".95"/>
+      <path d="M1372 900 L1462 900 L1490 912 L1342 912 Z" fill="#241426" opacity=".55"/>
+    </g>
+    <path d="M1400 516 C1394 472 1412 444 1438 442" stroke="#ffc49b" stroke-width="4" fill="none" opacity=".45"/>
+    <path d="M1398 560 Q1400 574 1396 584" stroke="#ffc49b" stroke-width="3" fill="none" opacity=".35"/>
+  </g>
+
+  <!-- paper crane on railing -->
+  <g transform="translate(1310 662) scale(1.05)" fill="#ffe4c0" opacity=".95">
+    <polygon points="50,18 82,42 50,60 18,42" opacity=".6"/>
+    <polygon points="50,60 82,42 70,78 50,88" opacity=".95"/>
+    <polygon points="50,60 18,42 30,78 50,88" opacity=".75"/>
+    <polygon points="50,88 62,96 50,100 38,96" opacity=".85"/>
+    <polygon points="82,42 98,30 94,48 86,52" opacity=".7"/>
+  </g>
+
+  <!-- petals -->
+  <g fill="#ffb6aa">
+    <ellipse cx="1050" cy="240" rx="9" ry="5" transform="rotate(-24 1050 240)" opacity=".75"/>
+    <ellipse cx="1120" cy="330" rx="7" ry="4" transform="rotate(18 1120 330)" opacity=".6"/>
+    <ellipse cx="970" cy="410" rx="8" ry="4.5" transform="rotate(-40 970 410)" opacity=".65"/>
+    <ellipse cx="1520" cy="250" rx="10" ry="5" transform="rotate(32 1520 250)" opacity=".7"/>
+    <ellipse cx="1640" cy="410" rx="7" ry="4" transform="rotate(-14 1640 410)" opacity=".55"/>
+    <ellipse cx="760" cy="520" rx="8" ry="4" transform="rotate(22 760 520)" opacity=".6"/>
+    <ellipse cx="1480" cy="860" rx="9" ry="5" transform="rotate(-28 1480 860)" opacity=".45"/>
+    <ellipse cx="1080" cy="940" rx="7" ry="4" transform="rotate(14 1080 940)" opacity=".4"/>
+    <ellipse cx="480" cy="800" rx="8" ry="4.5" transform="rotate(-18 480 800)" opacity=".4"/>
+  </g>
+
+  <!-- soft edge vignette -->
+  <rect width="1920" height="1080" fill="url(#edge)"/>
+</svg>

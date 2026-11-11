@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#2a1728" />
+  <meta name="description" content="Paper Sunsets — a short romantic visual novel about the things we write instead of saying." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Paper Sunsets — A Visual Novel" />
+  <meta property="og:description" content="A short romantic visual novel about the things we write instead of saying." />
+  <meta name="twitter:card" content="summary" />
+  <title>Paper Sunsets — A Visual Novel</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <!-- Shared line-art crane symbol -->
+  <svg class="svg-sprite" aria-hidden="true" focusable="false">
+    <symbol id="crane-icon" viewBox="0 0 100 100">
+      <polygon points="50,18 82,42 50,60 18,42" opacity=".55" />
+      <polygon points="50,60 82,42 70,78 50,88" opacity=".9" />
+      <polygon points="50,60 18,42 30,78 50,88" opacity=".7" />
+      <polygon points="50,88 62,96 50,100 38,96" opacity=".8" />
+      <polygon points="82,42 98,30 94,48 86,52" opacity=".65" />
+    </symbol>
+  </svg>
+
+  <div id="app">
+    <!-- ══════════════ TITLE ══════════════ -->
+    <section id="screen-title" class="screen is-active" aria-label="Title screen">
+      <div class="title-bg" id="title-bg"></div>
+      <div class="title-overlay"></div>
+
+      <div class="title-content">
+        <p class="title-kicker">A visual novel</p>
+        <h1 class="title-logo">Paper<br /><span>Sunsets</span></h1>
+        <p class="title-tagline">A story about the things we write instead of saying.</p>
+
+        <nav class="title-menu" aria-label="Main menu">
+          <button class="menu-item" id="btn-new" type="button">New Game</button>
+          <button class="menu-item" id="btn-continue" type="button">Continue</button>
+          <button class="menu-item" id="btn-load" type="button">Load Game</button>
+          <button class="menu-item" id="btn-endings" type="button">Endings</button>
+          <button class="menu-item" id="btn-settings" type="button">Settings</button>
+        </nav>
+
+        <p class="title-footer">© 2026 · Four endings · Best experienced with the lights low and a little patience.</p>
+      </div>
+
+      <div class="title-crane" aria-hidden="true">
+        <svg viewBox="0 0 100 100"><use href="#crane-icon"></use></svg>
+      </div>
+    </section>
+
+    <!-- ══════════════ GAME ══════════════ -->
+    <section id="screen-game" class="screen" aria-label="Story">
+      <div class="bg-layer" id="bg-layer-a"></div>
+      <div class="bg-layer" id="bg-layer-b"></div>
+      <div class="bg-wash"></div>
+      <div class="vignette"></div>
+      <div class="petals" id="petals" aria-hidden="true"></div>
+
+      <header class="game-topbar">
+        <div class="chapter-label" id="chapter-label"></div>
+        <div class="topbar-actions">
+          <button class="chip" id="btn-log" type="button" title="Backlog (L)">Log</button>
+          <button class="chip" id="btn-auto" type="button" title="Auto play (A)">Auto</button>
+          <button class="chip" id="btn-skip" type="button" title="Skip ahead">Skip</button>
+          <button class="chip" id="btn-pause" type="button" title="Menu (Esc)">Menu</button>
+        </div>
+      </header>
+
+      <div class="portrait-wrap" id="portrait-wrap" aria-hidden="true">
+        <div class="portrait-glow"></div>
+        <img id="portrait-img" alt="" />
+      </div>
+
+      <div class="dialogue-wrap" id="dialogue-wrap">
+        <div class="nameplate is-empty" id="nameplate"></div>
+        <div class="dialogue-box" id="dialogue-box">
+          <p class="dialogue-text" id="dialogue-text"></p>
+          <span class="advance-indicator" id="advance-indicator">▾</span>
+        </div>
+      </div>
+
+      <div class="choices-layer" id="choices-layer" hidden>
+        <div class="choices" id="choices"></div>
+      </div>
+
+      <div class="note-layer" id="note-layer" hidden>
+        <div class="paper-note" role="dialog" aria-label="A handwritten note">
+          <div class="note-crane" aria-hidden="true">
+            <svg viewBox="0 0 100 100"><use href="#crane-icon"></use></svg>
+          </div>
+          <p id="note-text"></p>
+          <span class="note-hint">tap to continue</span>
+        </div>
+      </div>
+
+      <div class="chapter-card" id="chapter-card" hidden>
+        <div class="chapter-inner">
+          <p class="chapter-day" id="chapter-day"></p>
+          <h2 class="chapter-title" id="chapter-title"></h2>
+          <p class="chapter-time" id="chapter-time"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ ENDING ══════════════ -->
+    <section id="screen-ending" class="screen" aria-label="Ending">
+      <div class="ending-bg" id="ending-bg"></div>
+      <div class="ending-overlay"></div>
+      <div class="ending-content">
+        <p class="ending-kicker" id="ending-kicker"></p>
+        <h2 class="ending-title" id="ending-title"></h2>
+        <p class="ending-blurb" id="ending-blurb"></p>
+        <div class="ending-actions">
+          <button class="btn-primary" id="btn-ending-again" type="button">Play Again</button>
+          <button class="btn-ghost" id="btn-ending-gallery" type="button">Endings</button>
+          <button class="btn-ghost" id="btn-ending-title" type="button">Title</button>
+        </div>
+        <p class="ending-count" id="ending-count"></p>
+      </div>
+    </section>
+
+    <!-- ══════════════ MODALS ══════════════ -->
+    <div class="modal-layer" id="modal-settings" hidden>
+      <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+        <div class="modal-head">
+          <h2 id="settings-title">Settings</h2>
+          <button class="modal-close" type="button" data-close="modal-settings" aria-label="Close settings">✕</button>
+        </div>
+
+        <div class="setting-row">
+          <label for="set-speed">Text speed</label>
+          <input type="range" id="set-speed" min="10" max="100" step="1" />
+          <output id="set-speed-val">45</output>
+        </div>
+
+        <div class="setting-row">
+          <label for="set-auto">Auto delay</label>
+          <input type="range" id="set-auto" min="1" max="6" step="0.5" />
+          <output id="set-auto-val">2.5s</output>
+        </div>
+
+        <label class="check-row">
+          <input type="checkbox" id="set-reduce" />
+          <span>Reduce motion</span>
+        </label>
+
+        <p class="settings-note">Progress autosaves after every line. Manual saves are available from the in-game menu.</p>
+
+        <button class="btn-danger" id="btn-reset" type="button">Reset all progress</button>
+      </div>
+    </div>
+
+    <div class="modal-layer" id="modal-gallery" hidden>
+      <div class="modal-panel modal-wide" role="dialog" aria-modal="true" aria-labelledby="gallery-title">
+        <div class="modal-head">
+          <div>
+            <h2 id="gallery-title">Endings</h2>
+            <p class="modal-sub" id="gallery-count"></p>
+          </div>
+          <button class="modal-close" type="button" data-close="modal-gallery" aria-label="Close endings">✕</button>
+        </div>
+        <div class="gallery-grid" id="gallery-grid"></div>
+      </div>
+    </div>
+
+    <div class="modal-layer" id="modal-backlog" hidden>
+      <div class="modal-panel modal-wide" role="dialog" aria-modal="true" aria-labelledby="backlog-title">
+        <div class="modal-head">
+          <h2 id="backlog-title">Backlog</h2>
+          <button class="modal-close" type="button" data-close="modal-backlog" aria-label="Close backlog">✕</button>
+        </div>
+        <div class="backlog" id="backlog"></div>
+      </div>
+    </div>
+
+    <div class="modal-layer" id="modal-pause" hidden>
+      <div class="modal-panel modal-small" role="dialog" aria-modal="true" aria-labelledby="pause-title">
+        <div class="modal-head">
+          <h2 id="pause-title">Paused</h2>
+          <button class="modal-close" type="button" data-close="modal-pause" aria-label="Resume">✕</button>
+        </div>
+        <div class="pause-menu">
+          <button class="pause-btn" type="button" data-close="modal-pause">Resume</button>
+          <button class="pause-btn" id="btn-pause-saves" type="button">Save / Load</button>
+          <button class="pause-btn" id="btn-pause-settings" type="button">Settings</button>
+          <button class="pause-btn pause-btn-danger" id="btn-pause-title" type="button">Return to Title</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-layer" id="modal-saves" hidden>
+      <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="saves-title">
+        <div class="modal-head">
+          <div>
+            <h2 id="saves-title">Save / Load</h2>
+            <p class="modal-sub">Three manual slots. The story also autosaves after every line.</p>
+          </div>
+          <button class="modal-close" type="button" data-close="modal-saves" aria-label="Close saves">✕</button>
+        </div>
+        <div class="save-slots" id="save-slots"></div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" hidden></div>
+  </div>
+
+  <script src="./js/story.js"></script>
+  <script src="./js/engine.js"></script>
+</body>
+</html>

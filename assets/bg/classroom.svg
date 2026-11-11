@@ -1,0 +1,208 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Empty high school classroom in late afternoon light">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f3ddb9"/>
+      <stop offset=".62" stop-color="#e8c79d"/>
+      <stop offset="1" stop-color="#d9b083"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b77b55"/>
+      <stop offset="1" stop-color="#8a563d"/>
+    </linearGradient>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd9a6"/>
+      <stop offset=".45" stop-color="#ffc08e"/>
+      <stop offset="1" stop-color="#f79a7d"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff1c9" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#ffe3a8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="curtain" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f9ecd4"/>
+      <stop offset=".5" stop-color="#efd9b6"/>
+      <stop offset="1" stop-color="#e4c79d"/>
+    </linearGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+  </defs>
+
+  <!-- room -->
+  <rect width="1920" height="1080" fill="url(#wall)"/>
+  <rect y="760" width="1920" height="320" fill="url(#floor)"/>
+  <path d="M0 760 H1920" stroke="#8a5a42" stroke-width="6" opacity=".55"/>
+  <g stroke="#7b4b36" stroke-width="2" opacity=".22">
+    <path d="M0 860 H1920"/>
+    <path d="M0 960 H1920"/>
+    <path d="M0 1060 H1920"/>
+    <path d="M240 760 V1080"/>
+    <path d="M640 760 V1080"/>
+    <path d="M1040 760 V1080"/>
+    <path d="M1440 760 V1080"/>
+    <path d="M1840 760 V1080"/>
+  </g>
+
+  <!-- ceiling -->
+  <rect width="1920" height="86" fill="#e6c79c"/>
+  <path d="M0 86 H1920" stroke="#c89e73" stroke-width="4" opacity=".7"/>
+  <rect x="580" y="24" width="760" height="16" rx="8" fill="#f7e8c9" opacity=".8"/>
+  <rect x="820" y="46" width="280" height="7" rx="3.5" fill="#e7cda4"/>
+
+  <!-- chalkboard -->
+  <g>
+    <rect x="96" y="150" width="720" height="360" rx="8" fill="#6d4b35"/>
+    <rect x="110" y="164" width="692" height="332" rx="4" fill="#3d5c4c"/>
+    <rect x="110" y="164" width="692" height="332" rx="4" fill="#345243" opacity=".55"/>
+    <g stroke="#dcebdd" stroke-width="3" opacity=".22" stroke-linecap="round" fill="none">
+      <path d="M160 230 q60 -24 118 0 t118 0"/>
+      <path d="M160 280 q80 -18 160 0 t160 0"/>
+      <path d="M160 330 h250"/>
+      <path d="M160 380 h180"/>
+      <g transform="translate(560 258) scale(1.25)">
+        <polygon points="50,18 82,42 50,60 18,42"/>
+        <polygon points="50,60 82,42 70,78 50,88"/>
+        <polygon points="50,60 18,42 30,78 50,88"/>
+      </g>
+    </g>
+    <rect x="440" y="470" width="90" height="12" rx="6" fill="#f4ecd6" opacity=".8"/>
+    <rect x="470" y="466" width="14" height="18" rx="3" fill="#e6d7bb" opacity=".8"/>
+  </g>
+
+  <!-- windows -->
+  <g>
+    <rect x="1030" y="120" width="820" height="540" rx="6" fill="#8e6648"/>
+    <rect x="1046" y="136" width="788" height="508" rx="3" fill="url(#sky)"/>
+    <g fill="#fff0c8" opacity=".5">
+      <ellipse cx="1230" cy="250" rx="130" ry="26"/>
+      <ellipse cx="1510" cy="330" rx="170" ry="24"/>
+      <ellipse cx="1370" cy="430" rx="220" ry="20"/>
+    </g>
+    <g stroke="#79553e" stroke-width="14">
+      <path d="M1046 300 H1834"/>
+      <path d="M1046 475 H1834"/>
+      <path d="M1310 136 V644"/>
+      <path d="M1570 136 V644"/>
+    </g>
+    <g fill="#dda35d" opacity=".28">
+      <circle cx="1110" cy="560" r="26"/>
+      <circle cx="1190" cy="590" r="18"/>
+      <circle cx="1750" cy="220" r="20"/>
+    </g>
+    <!-- distant foliage -->
+    <g fill="#b97858" opacity=".5">
+      <circle cx="1090" cy="620" r="70"/>
+      <circle cx="1170" cy="650" r="54"/>
+      <circle cx="1780" cy="630" r="76"/>
+      <circle cx="1700" cy="655" r="45"/>
+    </g>
+  </g>
+
+  <!-- curtains -->
+  <g fill="url(#curtain)">
+    <path d="M1010 110 C1030 240 1020 420 1044 660 L1104 660 C1080 430 1092 250 1072 110 Z"/>
+    <path d="M1838 110 C1816 260 1828 440 1806 660 L1746 660 C1770 440 1760 260 1780 110 Z"/>
+    <path d="M1000 104 C1030 106 1060 108 1080 110 L1076 132 C1050 128 1024 128 1004 126 Z" opacity=".8"/>
+    <path d="M1848 104 C1818 106 1790 108 1772 110 L1776 132 C1802 128 1826 128 1844 126 Z" opacity=".8"/>
+  </g>
+
+  <!-- sunbeams -->
+  <g opacity=".55">
+    <polygon points="1060,180 1300,180 760,820 380,900" fill="url(#beam)"/>
+    <polygon points="1360,190 1540,190 1280,860 980,920" fill="url(#beam)" opacity=".7"/>
+    <polygon points="1600,200 1770,200 1720,860 1500,900" fill="url(#beam)" opacity=".5"/>
+  </g>
+  <ellipse cx="900" cy="840" rx="460" ry="120" fill="#ffdf9f" opacity=".16" filter="url(#soft)"/>
+
+  <!-- clock -->
+  <g transform="translate(960 118)">
+    <circle r="40" fill="#f5ead2" stroke="#8b6547" stroke-width="6"/>
+    <circle r="3" fill="#6d4b35"/>
+    <path d="M0 0 V-24 M0 0 L16 8" stroke="#6d4b35" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <!-- teacher desk -->
+  <g>
+    <path d="M60 700 L410 680 L440 760 L90 790 Z" fill="#c18a5d"/>
+    <path d="M90 790 L440 760 L440 930 L90 960 Z" fill="#9e6745"/>
+    <path d="M110 960 L140 960 L140 1030 L110 1030 Z" fill="#75462f"/>
+    <path d="M390 930 L420 930 L420 1000 L390 1000 Z" fill="#75462f"/>
+    <rect x="140" y="720" width="66" height="10" rx="5" fill="#f3e8d1" opacity=".9" transform="rotate(-2 140 720)"/>
+    <rect x="214" y="716" width="52" height="9" rx="4" fill="#e8b06e" opacity=".9" transform="rotate(-2 214 716)"/>
+    <g transform="translate(300 700) scale(.5)" fill="#fff6e6" opacity=".9">
+      <polygon points="50,18 82,42 50,60 18,42"/>
+      <polygon points="50,60 82,42 70,78 50,88"/>
+      <polygon points="50,60 18,42 30,78 50,88"/>
+    </g>
+  </g>
+
+  <!-- back desk row -->
+  <g>
+    <g transform="translate(520 680)">
+      <path d="M0 30 L190 16 L230 48 L40 66 Z" fill="#c99463"/>
+      <path d="M40 66 L230 48 L230 100 L40 120 Z" fill="#a9724b"/>
+      <path d="M58 120 L76 120 L76 196 L58 196 Z" fill="#7d4c34"/>
+      <path d="M196 100 L214 100 L214 176 L196 176 Z" fill="#7d4c34"/>
+    </g>
+    <g transform="translate(830 676)">
+      <path d="M0 30 L190 16 L230 48 L40 66 Z" fill="#c99463"/>
+      <path d="M40 66 L230 48 L230 100 L40 120 Z" fill="#a9724b"/>
+      <path d="M58 120 L76 120 L76 196 L58 196 Z" fill="#7d4c34"/>
+      <path d="M196 100 L214 100 L214 176 L196 176 Z" fill="#7d4c34"/>
+    </g>
+    <g transform="translate(1170 672)">
+      <path d="M0 30 L190 16 L230 48 L40 66 Z" fill="#c99463"/>
+      <path d="M40 66 L230 48 L230 100 L40 120 Z" fill="#a9724b"/>
+      <path d="M58 120 L76 120 L76 196 L58 196 Z" fill="#7d4c34"/>
+      <path d="M196 100 L214 100 L214 176 L196 176 Z" fill="#7d4c34"/>
+    </g>
+  </g>
+
+  <!-- front desk row -->
+  <g>
+    <g transform="translate(430 850)">
+      <path d="M0 44 L250 22 L296 66 L46 90 Z" fill="#d09a66"/>
+      <path d="M46 90 L296 66 L296 138 L46 166 Z" fill="#b0774c"/>
+      <path d="M70 166 L92 166 L92 258 L70 258 Z" fill="#7d4c34"/>
+      <path d="M254 138 L276 138 L276 230 L254 230 Z" fill="#7d4c34"/>
+    </g>
+    <g transform="translate(1040 842)">
+      <path d="M0 44 L250 22 L296 66 L46 90 Z" fill="#d09a66"/>
+      <path d="M46 90 L296 66 L296 138 L46 166 Z" fill="#b0774c"/>
+      <path d="M70 166 L92 166 L92 258 L70 258 Z" fill="#7d4c34"/>
+      <path d="M254 138 L276 138 L276 230 L254 230 Z" fill="#7d4c34"/>
+    </g>
+    <g transform="translate(1610 836)">
+      <path d="M0 44 L250 22 L296 66 L46 90 Z" fill="#d09a66"/>
+      <path d="M46 90 L296 66 L296 138 L46 166 Z" fill="#b0774c"/>
+      <path d="M70 166 L92 166 L92 258 L70 258 Z" fill="#7d4c34"/>
+      <path d="M254 138 L276 138 L276 230 L254 230 Z" fill="#7d4c34"/>
+    </g>
+  </g>
+
+  <!-- chair backs -->
+  <g fill="#8c5c3e">
+    <rect x="500" y="762" width="88" height="60" rx="10"/>
+    <rect x="890" y="756" width="88" height="60" rx="10"/>
+    <rect x="1220" y="750" width="88" height="60" rx="10"/>
+    <rect x="1560" y="744" width="88" height="60" rx="10"/>
+  </g>
+
+  <!-- light dust -->
+  <g fill="#fff4d6">
+    <circle cx="820" cy="430" r="4" opacity=".7"/>
+    <circle cx="920" cy="520" r="3" opacity=".55"/>
+    <circle cx="1120" cy="380" r="3.5" opacity=".6"/>
+    <circle cx="1280" cy="560" r="4" opacity=".5"/>
+    <circle cx="1440" cy="470" r="3" opacity=".65"/>
+    <circle cx="690" cy="600" r="3" opacity=".45"/>
+    <circle cx="1640" cy="560" r="4" opacity=".5"/>
+    <circle cx="1740" cy="420" r="3" opacity=".45"/>
+  </g>
+
+  <!-- warm overlay -->
+  <rect width="1920" height="1080" fill="#ffb56e" opacity=".08"/>
+</svg>
