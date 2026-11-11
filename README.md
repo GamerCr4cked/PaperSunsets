@@ -7,7 +7,7 @@
 ![Paper Sunsets key art](assets/title/key-art.svg)
 
 - About 20 minutes per playthrough
-- 6 choices and 4 endings
+- Six choices that shape the story, plus a final decision and four endings
 - A hidden clue system that changes the final choice's wording and ending dialogue
 - Autosave, three manual save slots, a backlog, auto/skip, text speed, and reduced motion
 - An endings gallery that remembers what you have discovered
